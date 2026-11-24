@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kotten och spegeln – vilken halva är spegelvänd?</title>
+<meta name="description" content="En halva är färdig, välj den halva som gör bilden spegelvänd. Tränar symmetri, åk 1–4 matematik. Gratis, ingen inloggning.">
+<meta name="theme-color" content="#faf7f2">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="manifest" href="site.webmanifest">
+<meta property="og:title" content="Kotten och spegeln – vilken halva är spegelvänd?">
+<meta property="og:description" content="Välj den halva som gör bilden spegelvänd. Symmetri för åk 1–4.">
+<meta property="og:image" content="og.png">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="styles.css">
+<script src="https://www.skolappar.com/kotten.js" defer></script>
+</head>
+<body>
+
+<!-- START:startskarm -->
+<div id="startskarm">
+  <div class="sk-inner">
+    <img class="sk-ikon" src="icon-192.png" alt="" width="96" height="96">
+    <h1>Kotten och spegeln</h1>
+    <p class="sk-tagline">Vilken halva är spegelvänd?</p>
+    <div class="sk-taggar">
+      <span>Spel</span><span>Matte</span><span>Åk 1–4</span>
+    </div>
+    <button class="sk-play" id="spela" aria-label="Spela Kotten och spegeln">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg>
+      Spela
+    </button>
+    <p class="sk-fot">Gratis · ingen inloggning · skolappar.com</p>
+    <details class="sk-laroplan">
+      <summary>Läroplanskoppling (Lgr22)</summary>
+      <p><b>Matematik, åk 1–3, centralt innehåll:</b> ”Symmetri i vardagen och hur symmetri kan konstrueras.” Även: ”Vanliga lägesord för att beskriva föremåls och objekts läge i rummet.”</p>
+      <p>Appen tränar spegelsymmetri: den vänstra halvan av en bild är fylld med färgade nötter, och barnet väljer bland tre halvor den som gör hela bilden spegelvänd runt mittlinjen. Felvalen är en förskjutning, en vändning eller en vridning, så barnet måste skilja en spegling från något som bara liknar den. Svårigheten stiger genom fler nötter och mer lika felval – aldrig genom kortare tid. Källa: Skolverket, läroplanen för grundskolan (Lgr22).</p>
+    </details>
+  </div>
+</div>
+<!-- SLUT:startskarm -->
+
+<main id="spel" hidden>
+  <header class="hud">
+    <div class="hud-vanster">
+      <svg class="kotten-hud" viewBox="0 0 60 60" aria-hidden="true"></svg>
+    </div>
+    <div class="hud-mitten">
+      <span class="prickar" id="prickar" aria-label="uppgifter klara"></span>
+      <span class="stjarnor" id="stjarnor" aria-label="stjärnor"></span>
+    </div>
+    <div class="hud-hoger">
+      <button class="ikon-knapp" id="hjalp" aria-label="Ledtråd">?</button>
+      <button class="ikon-knapp" id="ljud" aria-label="Ljud på eller av">
+        <svg viewBox="0 0 24 24" aria-hidden="true" id="ljudikon"></svg>
+      </button>
+    </div>
+  </header>
+
+  <section class="brada">
+    <div class="ram" id="ram" aria-label="en bild med en streckad mittlinje">
+      <div class="halva" id="halva-v"></div>
+      <div class="mittlinje" aria-hidden="true"></div>
+      <div class="halva" id="halva-h"></div>
+    </div>
+  </section>
+
+  <section class="val-rad">
+    <div class="val" id="val" aria-label="tre halvor att välja bland"></div>
+  </section>
+
+  <footer class="kotten-rad">
+    <svg class="kotten-svg" viewBox="0 0 60 60" aria-hidden="true" id="kotten"></svg>
+  </footer>
+</main>
+
+<div id="overlay" hidden>
+  <div class="ov-inner">
+    <div id="ov-bild"></div>
+    <h2 id="ov-titel"></h2>
+    <p id="ov-text"></p>
+    <div class="ov-knappar">
+      <button class="knapp stor" id="ov-nasta"></button>
+      <button class="knapp tyst" id="ov-niva" hidden>Byt nivå</button>
+    </div>
+  </div>
+</div>
+
+<audio id="tyst" hidden></audio>
+<script src="app.js"></script>
+</body>
+</html>
